@@ -1,0 +1,101 @@
+\documentclass[11pt,twoside]{article}
+
+\input{submission-iabem/iabem-macros}
+
+% ------------------------------------------------------------------------
+% --------------- DO NOT EDIT THE FILE ABOVE THIS LINE -------------------
+% ------------------------------------------------------------------------
+
+% Put additional \usepackage commands here. Use additional packages sparingly
+% and not to change the overall layout of the paper.
+
+% Add your own Macro definitions here.
+
+\begin{document}
+
+% Only the iabempaper environment should be contained between \begin{document}
+% and \end{document}
+ \begin{iabempaper}{%
+% Put the paper tile here
+Modeling Multiscale Interface Phenomena Using Nonlinear Transmission Conditions
+
+}{%
+% Put the list of authors here, using \iabemauthor or \iabemspeaker commands
+  \iabemspeaker[jaydeep.p.bardhan@gsk.com]{Jaydeep P. Bardhan}{GlaxoSmithKline, Collegeville, PA, USA}
+  \iabemauthor{Ali Mehdizadeh Rahimi}{Department of Mechanical and Industrial Engineering, Northeastern University, Boston, MA, USA}
+  \iabemauthor{Amirhossein Molavi Tabrizi}{Department of Physics, Northeastern University, Boston, MA, USA}
+  \iabemauthor{Matthew G. Knepley}{Department of Computer Science, University of Buffalo, Buffalo, NY, USA}
+} 
+
+ 
+
+\bigskip
+
+
+\noindent\textbf{Keywords:}
+% describe the field with a few concise keywords
+solvation, electrostatics, Poisson-Boltzmann, nonlinear, SLIC
+
+
+\bigskip
+
+% THE MAIN TEXT GOES HERE 
+
+The atomic-scale structure of fluids at the solid-liquid interface
+plays central roles in problems ranging from understanding proteins to
+improving battery technology. This poses serious challenges for
+quantitative modeling: on one hand, classical continuum models fail to
+reproduce known facts even qualitatively correctly; on the other hand,
+for many problems, atomistically detailed models are impractically
+expensive. Most approaches for addressing this multiscale problem rely
+either on complicated partial differential equation models, or on
+coupling atomistic and continuum models. However, existing approaches
+have failed to capture key nonlinear phenomena in the first layer of
+fluid molecules. Using the electrostatic response of a liquid
+surrounding a charged biomolecule as an example, we propose a new
+approach, which capitalizes on the well-known fact that
+boundary-integral equations focus attention on the interface itself,
+and in particular on the transmission
+conditions\cite{Bardhan14_asym,MolaviTabrizi16}. We have shown that
+the transmission condition associated with the classical continuum
+model, based on macroscopic dielectric theory, is easily corrected to
+achieve atomistic-model accuracy with a simple nonlinear term that is
+a function of the local electric field~\cite{Bardhan14_asym}. The
+resulting model is both highly accurate, and also easy to compute
+numerically on complicated geometries; it represents merely a diagonal
+perturbation of the usual BEM problem, combined with a short nonlinear
+iteration~\cite{Bardhan14_asym,MolaviTabrizi16}. A variety of related
+problems in interfacial response lead to modified transmission
+conditions, and we suggest that the boundary-element method community
+has a myriad of opportunities to advance multiscale modeling.
+ 
+\bigskip
+
+ 
+
+\begin{thebibliography}{99}
+
+% References go here, some examples are given  
+%
+\bibitem{Bardhan14_asym}
+J.~P. Bardhan and M.~G. Knepley.
+\newblock Modeling charge-sign asymmetric solvation free energies with
+  nonlinear boundary conditions.
+\newblock {\em J. Chem. Phys.}, 141:131103, 2014.
+
+\bibitem{MolaviTabrizi16}
+A.~Molavi Tabrizi, S.~Goossens, C.~D. Cooper, M.~G. Knepley, and
+J.~P. Bardhan.
+\newblock Extending the solvation-layer interface condition
+  (SLIC) continuum electrostatic model to linearized
+Poisson--Boltzmann solvent,
+\newblock {\em Journal of Chemical Theory and Computation} 13:2897, 2017,.
+\end{thebibliography}
+
+% ------------------------------------------------------------------------
+% --------------- DO NOT EDIT THE FILE BELOW THIS LINE -------------------
+% ------------------------------------------------------------------------
+
+\end{iabempaper}
+
+\end{document}

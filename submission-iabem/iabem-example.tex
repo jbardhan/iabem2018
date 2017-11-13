@@ -1,0 +1,93 @@
+\documentclass[11pt,twoside]{article}
+
+\input{iabem-macros}
+
+% ------------------------------------------------------------------------
+% --------------- DO NOT EDIT THE FILE ABOVE THIS LINE -------------------
+% ------------------------------------------------------------------------
+
+% Put additional \usepackage commands here. Use additional packages sparingly
+% and not to change the overall layout of the paper.
+
+% Add your own Macro definitions here.
+
+\begin{document}
+
+% Only the iabempaper environment should be contained between \begin{document}
+% and \end{document}
+ \begin{iabempaper}{%
+% Put the paper tile here
+
+Symposium of the International Association for Boundary Element Methods
+
+}{%
+% Put the list of authors here, using \iabemauthor or \iabemspeaker commands
+  \iabemspeaker[me@my.domain]{First Author}{Department of Mathematics, University, City, Country}
+  \iabemauthor{Second Author}{Department of Engineering, University, City, Country}
+  \iabemauthor{Third Author}{1}
+} 
+
+ 
+
+\bigskip
+
+
+\noindent\textbf{Keywords:}
+% describe the field with a few concise keywords
+first, second, third 
+
+
+\bigskip
+
+% THE MAIN TEXT GOES HERE 
+
+ \section{Instructions for preparing abstracts}
+
+   All papers for IABEM 2018 should be written in English and prepared
+using the IABEM \LaTeX{} templates. Preparation instructions are given in the file
+\textbf{\texttt{iabem-example.tex}}. Please put your text only in the places indicated as the files may be processed automatically. You will also require the macros file, \textbf{\texttt{iabem-macros.tex}}, that specifies the layout. The length of your abstract must be  \textbf{at most one  page} including bibliographical references.  
+References should be given at the end of the paper in a \texttt{thebibliography} environment and without using bibtex. Citations are inserted using the \texttt{\textbackslash{}cite} command, such as \cite{c1,c2,c3}.
+
+ 
+\bigskip
+
+ 
+ \section{Submission}
+Abstracts in PDF format should be uploaded to the EasyChair conference management system at
+\begin{center}
+  \texttt{www.easychair.org/conferences/?conf=iabem2018}
+\end{center}
+linked in the \textbf{Submission} section. 
+If you do not already have an account at EasyChair, you will need to create one.
+You will receive instructions on how to provide the source files once your submission  accepted.
+ 
+ 
+\bigskip
+
+ 
+
+\begin{thebibliography}{99}
+
+% References go here, some examples are given  
+%
+\bibitem{c1}
+J. Dupond and M. Smith, A Good Paper, 
+\emph{Journal of Important Papers} \textbf{44} (2006), pp. 2408--2431.
+
+\bibitem{c2}
+J. Dupond, A. Dupont and M. Smith, A Good Conference Proceedings, 
+in \emph{Proceedings of the Mathematical Conference,
+Paris, France, 8-9 December 1978,} pp. 2047--2078.
+
+\bibitem{c3}
+M. Smith, \textit{A Good Book}, 2nd edition, 
+Important Editions, London, 2006.
+\end{thebibliography}
+
+% ------------------------------------------------------------------------
+% --------------- DO NOT EDIT THE FILE BELOW THIS LINE -------------------
+% ------------------------------------------------------------------------
+
+\end{iabempaper}
+
+\end{document}

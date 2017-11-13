@@ -1,0 +1,137 @@
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,twoside,bindingoffset=1cm,head=15pt,body={17cm,25cm},top=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{cite}
+\usepackage{ifthen}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+
+\setlength{\columnsep}{3em}
+\titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{*1.5}{1ex}
+
+
+
+\newcommand{\todo}[1]{\textcolor{red}{\#\#\# #1 \#\#\#}}
+
+\newcounter{authorcounter}
+
+\newcommand{\iabemauthorlist}{}
+\newcommand{\iabemaddresslist}{}
+\newcommand{\iabememail}{}
+\newcommand{\iabemfootnotes}{}
+\newcommand{\iabemauthorpre}{}
+
+\def\theNumberTest#1{%
+  \if\relax\detokenize\expandafter{\romannumeral-0#1}\relax
+    true%
+  \else
+    false%
+  \fi
+}
+
+\newcommand{\iabemspeaker}[3][noemail]{%
+    \ifthenelse{\value{authorcounter} > 1}{%
+      \renewcommand{\iabemauthorpre}{, }%
+    }{%
+      \renewcommand{\iabemauthorpre}{}%
+    }%
+    \ifthenelse{\equal{#1}{noemail}}{%
+      \renewcommand{\iabemfootnotes}{}
+    }{%    
+      \renewcommand{\iabememail}{$^\ast$Email: #1}%
+      \renewcommand{\iabemfootnotes}{, \ast}
+    }%
+    \ifthenelse{\equal{\theNumberTest{#3}}{true}}{%
+      \edef\iabemauthorlist{\iabemauthorlist%
+        \iabemauthorpre{}\underline{#2}$^{#3\iabemfootnotes%
+        }$%
+      }%
+    }{%    
+      \edef\iabemauthorlist{\iabemauthorlist%
+        \iabemauthorpre\underline{#2}$^{\arabic{authorcounter}\iabemfootnotes%
+        }$%
+      }
+      \edef\iabemaddresslist{\iabemaddresslist% 
+        \par%
+        $^{\arabic{authorcounter}}$#3%
+      }%      
+      \stepcounter{authorcounter}%
+    }%
+  \ignorespaces
+}
+
+\newcommand{\iabemauthor}[3][noemail]{%
+    \ifthenelse{\value{authorcounter} > 1}{%
+      \renewcommand{\iabemauthorpre}{, }%
+    }{%
+      \renewcommand{\iabemauthorpre}{}%
+    }%
+    \ifthenelse{\equal{#1}{noemail}}{%
+      \renewcommand{\iabemfootnotes}{}
+    }{%    
+      \renewcommand{\iabememail}{$^\ast$Email: #1}%
+      \renewcommand{\iabemfootnotes}{, \ast}
+    }%
+    \ifthenelse{\equal{\theNumberTest{#3}}{true}}{%
+      \edef\iabemauthorlist{\iabemauthorlist%
+        \iabemauthorpre{}#2$^{#3\iabemfootnotes%
+        }$%
+      }%
+    }{% 
+      \edef\iabemauthorlist{\iabemauthorlist%
+         \iabemauthorpre{}#2$^{\arabic{authorcounter}\iabemfootnotes%
+         }$%
+      }
+      \edef\iabemaddresslist{\iabemaddresslist%
+        \par%
+        $^{\arabic{authorcounter}}$#3%
+      }%
+      \stepcounter{authorcounter}%
+    }%
+  \ignorespaces
+}
+
+\newenvironment{iabempaper}[3]{%
+  \renewcommand{\iabemauthorlist}{}%
+  \renewcommand{\iabememail}{}%
+  \setcounter{authorcounter}{1}%
+     #2
+%  \twocolumn[
+    \begin{center}
+     \bfseries
+     #1
+     \bigskip
+
+     \iabemauthorlist
+     \mdseries
+     \smallskip
+
+     \iabemaddresslist
+     \smallskip
+ 
+     \iabememail
+ 
+     \end{center}%
+ % ]
+
+}{%
+}
+
+
+% set up headers and footers
+\pagestyle{fancy}
+% \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+% \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{}
+\fancyhead[LE,RO]{\bfseries}
+\fancyhead[LO]{\bfseries IABEM 2018, Paris}
+\fancyhead[RE]{\bfseries IABEM 2018, Paris}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\fancypagestyle{plain}{%
+  \fancyhead{}
+%  \renewcommand{\headrulewidth}{0pt}
+}
